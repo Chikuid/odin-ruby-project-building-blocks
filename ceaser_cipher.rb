@@ -38,7 +38,7 @@ def shift_is_real(x,y,n)
 	end
 	return x
 end
-def ceaser_cipher(input,shift_amount,shift_direction="r")
+def caesar_cipher(input,shift_amount,shift_direction="r")
 intput_array=input.scan(/\w/).uniq
 #.uniq is used becaue this array is later used to calculate a hash for referring rather than shifting same letters again and again
 h=Hash.new 
@@ -50,7 +50,11 @@ intput_array.each {|element|
 }
 #value stored in hash now
 output = input.scan(/./).collect{|element|
-h[element] if h.key?(element)
+if h.key?(element)
+	h[element]
+else
+	element
+end
 }.join
 
 puts output 
@@ -62,7 +66,8 @@ shift_direction = gets.chomp
 puts "What is the amount of shift you want?"
 shift_amount_string = gets.chomp
 shift_amount = shift_amount_string.to_i%26
-ceaser_cipher(input,shift_amount,shift_direction)
+caesar_cipher(input,shift_amount,shift_direction)
 
-
+caesar_cipher("What a string!", 5)
+#output seeked in the odin project
 
