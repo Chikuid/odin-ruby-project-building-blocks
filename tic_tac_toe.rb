@@ -121,7 +121,7 @@ private
  end
 
 
-t=TicTacToe.new("Gaara","Jagga") #sample for showing use
+t=TicTacToe.new("Gaara","Golu") #sample for showing use
 t.start
 
 
